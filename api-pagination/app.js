@@ -6,26 +6,29 @@ const app = express();
 // ENVIRONMENT VARIABLES
 const ORIGIN = 'http://localhost:3000';
 
+// Setup middlewares
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const itemsDB = new Nedb({ filename: 'items.db', autoload: true });
-let cache = [];
 
-function getAllItems(_then, _catch) {
-    if (!cache) {
-        itemsDB.find({}, { _id: true, author: false, content: false }, (err, _items) => {
-            if (err) {
-                _catch(err);
-            }
-            
-            cache = _items.map(({ _id }) => _id);
+const getAllItems = (() => {
+    let cache = [];
+    return (_then, _catch) => {
+        if (!cache) {
+            itemsDB.find({}, { _id: true, author: false, content: false }, (err, _items) => {
+                if (err) {
+                    _catch(err);
+                }
+                
+                cache = _items.map(({ _id }) => _id);
+                _then(cache);
+            });
+        } else {
             _then(cache);
-        });
-    } else {
-        _then(cache);
-    }
-}
+        }
+    };
+})();
 
 app.get('/api/items', async (req, res) => {
     getAllItems(
