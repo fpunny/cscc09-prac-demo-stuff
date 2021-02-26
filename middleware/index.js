@@ -31,9 +31,6 @@ app.post(
                 ],
             },
         },
-        options: {
-            strict: true,
-        },
     }),
     async (req, res) => {
         console.log(`We made it!`);

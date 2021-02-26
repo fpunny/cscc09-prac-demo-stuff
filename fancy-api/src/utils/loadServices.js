@@ -1,4 +1,4 @@
-const fs = require('fs/promises');
+const fs = require('fs');
 const path = require('path');
 
 const dir = path.join(__dirname, '../services');
@@ -8,17 +8,16 @@ const dir = path.join(__dirname, '../services');
  * @param {Object} app - Express application
  * @returns {Promise} - Resolves when all services are loaded
  */
-module.exports = async app => {
-    const files = await fs.readdir(dir);
-    console.log(`${files.length} services found!`);
-    files.forEach(file => {
-        const {
-            onLoad = () => {},
-            baseUrl = '/',
-            router,
-        } = require(path.join(dir, file));
+module.exports = async (app) => {
+  const files = await fs.promises.readdir(dir);
+  console.log(`${files.length} services found!`);
+  files.forEach((file) => {
+    const { onLoad = () => {}, baseUrl = '/', router } = require(path.join(
+      dir,
+      file,
+    ));
 
-        app.use(baseUrl, router);
-        onLoad();
-    });
-}
+    app.use(baseUrl, router);
+    onLoad();
+  });
+};

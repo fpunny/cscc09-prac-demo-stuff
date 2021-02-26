@@ -39,7 +39,7 @@ const bodyValidator = (schema, options = {}) => {
         const throwError = validatorError(res);
         const fields = Object.keys(reqBody);
 
-        // Validate structure of body & required
+        // Validate structure of body
         if (options.strict) {
             const extraFields = fields.filter(field => !keys.includes(field));
             if (extraFields.length) {

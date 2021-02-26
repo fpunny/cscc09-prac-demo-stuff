@@ -4,7 +4,8 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "prettier --check \"./src/**/*.(js)\" && jshint ./src",
+    "lint": "prettier --write \"./src/**/*.(js)\"",
     "start": "nodemon"
   },
   "keywords": [],
@@ -12,11 +13,17 @@
   "license": "ISC",
   "devDependencies": {
     "husky": "^5.0.9",
+    "jshint": "^2.12.0",
     "nodemon": "^2.0.7",
     "pretty-quick": "^3.1.0"
   },
   "dependencies": {
     "express": "^4.17.1",
     "prettier": "^2.2.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged && jshint ./src"
+    }
   }
 }
