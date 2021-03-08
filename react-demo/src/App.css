@@ -1,0 +1,18 @@
+.app__title {
+    margin: 0;
+}
+
+.app__form {
+    margin-top: 2rem;
+}
+
+.app__form-item {
+    margin-bottom: 1rem;
+}
+
+.app__img {
+    width: 100%;
+    margin: 3rem auto 0;
+    border-radius: 0.5rem;
+    display: flex;
+}

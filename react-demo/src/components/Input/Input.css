@@ -1,0 +1,41 @@
+.input {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.input__field {
+    padding: 0.7rem;
+    background-color: #ececec;
+    border: 2px solid #e0e0e0;
+    border-radius: 0.25rem;
+    font-family: 'Inter', sans-serif;
+}
+
+.input__field--success {
+    border-color: limegreen;
+}
+
+.input__field--error {
+    border-color: red;
+}
+
+.input__msg {
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.input__msg--label {
+    margin-bottom: 0.5rem;
+}
+
+.input__msg--status {
+    margin-top: 0.25rem;
+}
+
+.input__msg--success {
+    color: limegreen;
+}
+
+.input__msg--error {
+    color: red;
+}

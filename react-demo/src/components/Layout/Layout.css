@@ -1,0 +1,26 @@
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+}
+
+.layout {
+    background-color: #ececec;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 5rem;
+    box-sizing: border-box;
+}
+
+.layout__content {
+    width: 100%;
+    max-width: 40rem;
+    background-color: white;
+    border-radius: 1rem;
+    box-sizing: border-box;
+    border: 2px solid #e0e0e0;
+    padding: 2rem;
+}
