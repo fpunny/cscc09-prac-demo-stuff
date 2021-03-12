@@ -1,11 +1,26 @@
 
+:root {
+    --color-background: #ececec;
+    --color-outline: #e0e0e0;
+    --color-text: black;
+    --color-white: white;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
+    color: var(--color-text);
+}
+
+.darknow {
+    --color-background: #131313;
+    --color-outline: #1f1f1f;
+    --color-text: white;
+    --color-white: black;
 }
 
 .layout {
-    background-color: #ececec;
+    background-color: var(--color-background);
     min-height: 100vh;
     width: 100%;
     display: flex;
@@ -18,9 +33,9 @@ body {
 .layout__content {
     width: 100%;
     max-width: 40rem;
-    background-color: white;
+    background-color: var(--color-white);
     border-radius: 1rem;
     box-sizing: border-box;
-    border: 2px solid #e0e0e0;
+    border: 2px solid var(--color-outline);
     padding: 2rem;
 }

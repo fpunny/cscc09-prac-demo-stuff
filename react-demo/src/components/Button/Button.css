@@ -6,7 +6,7 @@
     padding: 0.8rem 1.6rem;
     background-color: cornflowerblue;
     border: none;
-    color: white;
+    color: var(--color-white);
     font-family: 'Inter', sans-serif;
     font-weight: bold;
     border-radius: 0.2rem;

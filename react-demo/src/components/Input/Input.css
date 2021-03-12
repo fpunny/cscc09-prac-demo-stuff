@@ -5,8 +5,8 @@
 
 .input__field {
     padding: 0.7rem;
-    background-color: #ececec;
-    border: 2px solid #e0e0e0;
+    background-color: var(--color-background);
+    border: 2px solid var(--color-outline);
     border-radius: 0.25rem;
     font-family: 'Inter', sans-serif;
 }

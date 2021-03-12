@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import Input from './components/Input';
 import Layout from './components/Layout';
 import Button from './components/Button';
+import { DMContext } from './Routes';
 import './App.css'; // owo fancy convention - read more here [http://getbem.com/introduction/]
 
 const ORIGIN = `https://cataas.com`;
@@ -9,8 +10,11 @@ const ORIGIN = `https://cataas.com`;
 function App() {
   // These are our states
   const [ searching, setSearching ] = useState(false);
+  const ctx = useContext(DMContext);
   const [ image, setImage ] = useState();
   const [ name, setName ] = useState(``);
+
+  console.log(ctx);
 
   // A "static" value for when we search for a new image (and not have it change by our input)
   const searchTerm = useRef();
@@ -67,6 +71,14 @@ function App() {
           Give me cat
         </Button>
       </form>
+      <Button
+        onClick={() => {
+          ctx.setIsDM(_isDM => !_isDM);
+        }}
+        style={{ marginTop: 10 }}
+      >
+        Me want {ctx.isDarkMode ? `lightmode` : `darkmode`}
+      </Button>
       {/* A conditional render, only if we have an image - do we render the actual img element in the DOM */}
       {image ? (
         <img
