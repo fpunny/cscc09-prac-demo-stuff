@@ -35,8 +35,14 @@ jobs:
           node-version: 14
       - name: Download a Build Artifact
         uses: actions/download-artifact@v2.0.8
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: owo
+          restore-keys: owo
       - run: npm install -g @lhci/cli@0.7.x
-      - run: lhci autorun --collect.staticDistDir
+      - continue-on-error: true
+        run: lhci autorun --staticDistDir=./ --url=http:localhost --numberOfRuns=1
   deploy:
     runs-on: ubuntu-latest
     needs: test
