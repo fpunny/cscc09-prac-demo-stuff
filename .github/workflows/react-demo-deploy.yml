@@ -55,7 +55,7 @@ jobs:
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }}
-          source: "./**"
+          source: "artifact/*"
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           overwrite: true
